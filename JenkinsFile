@@ -1,9 +1,11 @@
+
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Run Tests') {
             steps {
-                sh 'mvn --version'
+                echo "${MAVEN_HOME}"
+                sh "${MAVEN_HOME}"/bin/mvn test
             }
         }
     }
