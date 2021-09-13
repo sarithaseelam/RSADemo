@@ -1,0 +1,41 @@
+pipeline
+{
+    agent any
+
+    stages
+    {
+
+        stage('MavenJob')
+        {
+            steps
+            {
+                bat "mvn clean"
+            }
+
+        stage('MavenJob1')
+        {
+            steps
+            {
+                echo 'executing mavenjob1'
+            }
+        }
+
+        stage('RSADemo')
+        {
+            steps
+            {
+                 bat "mvn test"
+            }
+        }
+
+        stage('E2EProjectDemo')
+        {
+            steps
+            {
+                 bat "mvn compile"
+
+            }
+        }
+    }
+
+}
